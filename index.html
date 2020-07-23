@@ -25,11 +25,11 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="minus-button" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="phone-value" type="text" class="form-control text-center" value="1">
+                           <button id="plus-button"  class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$ <span id="phone-dollar">1219</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -43,8 +43,8 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
+                           <button id="plus-casebutton" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input  type="text" class="form-control text-center" value="1">
                            <button class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
@@ -77,6 +77,45 @@
          </div>
       </div>
    </section>
+
+   <script>
+
+      // for plus button of mobile
+
+      const plusButton = document.getElementById("plus-button");
+      plusButton.addEventListener("click", function(){
+         
+
+         const phoneValue = document.getElementById("phone-value").value;
+         const phone = parseInt(phoneValue);
+         document.getElementById("phone-value").value = phone + 1;
+
+         const phoneDollar = document.getElementById("phone-dollar").innerText;
+         const phoneDollarTotal = parseInt(phoneDollar);
+         document.getElementById("phone-dollar").innerText = phoneDollarTotal + 1219;
+
+
+      
+      })
+
+      // for minus button of mobile
+      const minusButton = document.getElementById("minus-button");
+      minusButton.addEventListener("click", function(){
+         
+         const phoneValueDecrease = document.getElementById("phone-value").value;
+         const phone = parseInt(phoneValueDecrease);
+         document.getElementById("phone-value").value = phone - 1;
+
+         const phoneDollarDecrease = document.getElementById("phone-dollar").innerText;
+         const phoneDollarTotal = parseInt(phoneDollarDecrease);
+         document.getElementById("phone-dollar").innerText = phoneDollarTotal - 1219;
+      })
+
+      // for plus button of phone case
+      
+      
+
+   </script>
 </body>
 
 </html>
