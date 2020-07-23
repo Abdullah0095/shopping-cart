@@ -43,12 +43,12 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button id="plus-casebutton" class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input  type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="minus-case-button" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="case-value" type="text" class="form-control text-center" value="1">
+                           <button id="plus-case-button" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$ <span id="case-dollar">59</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -113,7 +113,32 @@
 
       // for plus button of phone case
       
-      
+      const plusCaseButton = document.getElementById("plus-case-button");
+      plusCaseButton.addEventListener("click", function(){
+         
+         const caseValueIncrease = document.getElementById("case-value").value;
+         const caseIncrease = parseInt(caseValueIncrease);
+         document.getElementById("case-value").value = caseIncrease + 1;
+
+         const caseDollarIncrease = document.getElementById("case-dollar").innerText;
+         const cases = parseInt(caseDollarIncrease);
+         document.getElementById("case-dollar").innerText = cases + 59;
+
+      })
+
+      // for minus button of phone case
+
+      const minusCaseButton = document.getElementById("minus-case-button");
+      minusCaseButton.addEventListener("click", function(){
+
+         const caseValueDecrease = document.getElementById("case-value").value;
+         const casesDecrease = parseInt(caseValueDecrease);
+         document.getElementById("case-value").value = casesDecrease - 1;
+
+         const caseDollarDecrease = document.getElementById("case-dollar").innerText;
+         const cases = parseInt(caseDollarDecrease);
+         document.getElementById("case-dollar").innerText = cases - 59;
+      })
 
    </script>
 </body>
